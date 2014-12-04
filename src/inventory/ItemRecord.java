@@ -44,27 +44,42 @@ public class ItemRecord {
 
   // initialize only from file
   
-  /**Added Buffered Reader and changed File(file) to FileReader(file) and added catch and try*/	
-	public ItemRecord(String file) {
-	    try {
-		Scanner sc = new Scanner(new BufferedReader(new FileReader(file)));
-		SKU = sc.nextInt();
-		numInStore = sc.nextInt();
-		numAtWarehouse = sc.nextInt();
-		numInTransit = sc.nextInt();
-		numSold = sc.nextInt();
-		StringBuilder sb = new StringBuilder();
-		name = sc.next();
-		while (sc.hasNext()) {
-			sb.append(sc.next());
-			sb.append(" ");
+  /** accepts a comma-delimited String as input and parses this to
+   *  initialize data fields of ItemRecord
+   */	
+	public ItemRecord(String input) {
+	/*
+	 * Adapted from web tutorial "Parse CSV Files in Java" by
+	 * Lokesh Gupta, retrieved 4 Dec 2014 from 
+	 * http://howtodoinjava.com/2013/05/27/parse-csv-files-in-java/
+	 */
+		Scanner sc = new Scanner(input).useDelimiter(",");
+		try {
+		/*
+		 * The Scanner accepts a String consisting of 
+		 * comma-delimited fields, then uses the commas
+		 * to parse these fields into tokens and initialize
+		 * the fields of the ItemRecord. 
+		 */
+			while (sc.hasNext()) {
+				SKU = sc.nextInt();
+				numInStore = sc.nextInt();
+				numAtWarehouse = sc.nextInt();
+				numInTransit = sc.nextInt();
+				numSold = sc.nextInt();
+				name = sc.next();
+				descrip = sc.next();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		descrip = sb.toString();
-        }
-		
-		catch (Exception e){
-    System.out.println(e);
-   }
+		finally {
+			try {
+				sc.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	/** sellItem - decrements numInStore
@@ -143,14 +158,13 @@ public class ItemRecord {
   // toString - only for writing to file
   /** Added String result; because result was not defined.  Also changed Integer.toString because (String) was not compiling*/
 	public String toString() {
-	    String result;
-		result = "";
-		result += Integer.toString(SKU) + '\t';
-		result += name + '\t';
-		result += descrip + '\t';
-		result += Integer.toString(numInStore) + '\t';
-		result += Integer.toString(numAtWarehouse) + '\t';
+		String result = "";
+		result += Integer.toString(SKU) + ",\t";
+		result += Integer.toString(numInStore) + ",\t";
+		result += Integer.toString(numAtWarehouse) + ",\t";
 		result += Integer.toString(numInTransit) + '\n';
+		result += name + ",\t";
+		result += descrip + ",\t";
 		return result;
 	}
 
