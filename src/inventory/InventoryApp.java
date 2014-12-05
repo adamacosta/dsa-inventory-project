@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 public class InventoryApp{
 
-//private StockList/*needs implementation*/ stock = new StockList();
+private static ItemArray stock = new ItemArray();
 protected static Scanner INPUT = new Scanner(System.in);
 
 protected static void loadData(String file) {
@@ -31,7 +31,7 @@ protected static void loadData(String file) {
  * from http://howtodoinjava.com/2013/05/27/parse-csv-files-in-java/
  */
 	try {
-		BufferedReader csvReader = new BufferedReader(new FileReader(file));
+		BufferedReader br = new BufferedReader(new FileReader(file));
 		try {
 	/*
 	 * The BufferedReader reads each line of the csv file, 
@@ -41,16 +41,16 @@ protected static void loadData(String file) {
 	 * initialization method. 
 	 */
 			String line = "";
-			while ((line = csvReader.readLine())!=null) {
-				line = csvReader.readLine();
-				//stock.insert(new ItemRecord(line));
+			while (br.ready()) {
+				line = br.readLine();
+				stock.insert(new ItemRecord(line));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		finally {
 			try {
-				csvReader.close();
+				br.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -62,41 +62,56 @@ protected static void loadData(String file) {
 
 protected static void mainMenu() {
 	System.out.println("Welcome to ABC Stores Main Menu");
-	System.out.println("\nPlease choose an option: ");	
-	while (INPUT.nextInt()!=3) {
+	while (true) {
+		System.out.println("\nPlease choose an option: ");
 		System.out.println("\n(1) Make sale");
 		System.out.println("(2) Find item");
-		System.out.println("(3) Close store");
-		if (INPUT.nextInt()==1) {
+		System.out.println("(3) Close store\n");
+		int selection = INPUT.nextInt();
+		if (selection==1) {
 			makeSale();
-		} else if (INPUT.nextInt()==2) {
+		} else if (selection==2) {
 			findItem();
-		} else if (INPUT.nextInt()==3) {
+		} else if (selection==3) {
 			writeData("data.csv");
+			break;
 		} else {
-			System.out.println("Invalid input. Choose again: ");
+			System.out.println("Invalid input. Try again.");
 		}
-		System.out.println("\nPlease choose an option: ");
 	} 
 }
 
 protected static void makeSale() {
-	System.out.println("\nPlease enter a SKU (x to exit): ");
-	while (INPUT.next()!="x" && INPUT.next()!="X") {
+	while (true) {
+		System.out.println("\nPlease enter a SKU (1 to exit):\n");
 		int SKU = INPUT.nextInt();
-		System.out.println("Enter number of item to sell: ");
+		if (SKU == 1) {
+			break;
+		}
+		System.out.println("\nEnter number of item to sell:\n");
 		int num = INPUT.nextInt();
-		//stock.find(SKU).sellItem(num);
-		System.out.println("\nPlease enter a SKU (x to exit): ");
+		ItemRecord retrieved = stock.find(SKU);
+		if(retrieved != null) {
+			stock.find(SKU).sellItem(num);
+		} else {
+			System.out.println("\nSKU not found.\n");
+		}
 	}
 }
 
 protected static void findItem() {
-	System.out.println("\nPlease enter a SKU (x to exit): ");
-	while (INPUT.next()!="x" && INPUT.next()!="X") {
+	while (true) {
+		System.out.println("\nPlease enter a SKU (1 to exit): \n");
 		int SKU = INPUT.nextInt();
-		//stock.find(SKU).displayItem();
-		System.out.println("\nPlease enter a SKU (x to exit): ");
+		if (SKU == 1) {
+			break;
+		}
+		ItemRecord retrieved = stock.find(SKU);
+		if (retrieved != null) { 
+			stock.find(SKU).displayItem();
+		} else {
+			System.out.println("\nSKU not found.\n");
+		}
 	}
 }
 

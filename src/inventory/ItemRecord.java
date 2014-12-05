@@ -94,7 +94,7 @@ public class ItemRecord {
 
 	/** updateVeloc - calculate sales velocity */
 	protected void updateVeloc() {
-		salesVelocity = (1/30) * (numSold)/numAtStart;
+		salesVelocity = (1/30) * numSold ;
 	}
 
 	/** orderItem - order more if velocity and stock level adequate */
@@ -120,6 +120,12 @@ public class ItemRecord {
 
   // methods for retrieving information
   /** Added return types*/	
+
+	/** getSKU - returns item SKU */
+	public int getSKU() {
+		return SKU;
+	}
+
 	/** getPrice - return unit price */
 	public double getPrice() {    
 		return unitPrice;
