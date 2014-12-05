@@ -13,9 +13,9 @@ To run a program, navigate to the bin directory. There are currently two
 different csv files with 25000 records each that can be used to load data
 into the program. One, "data.csv," contains records sorted by SKU. The other, 
 "rand-data.csv," contains records in random order. Run the program by
-executing the command "java inventory.[AppName] fileName.csv" where "[AppName]"
-is either ArrayApp or HashApp, depending upon which you want to run,
-and "fileName" is the name of the file you wish to load data from. By default,
+executing the command "java inventory.AppName fileName.csv" where 
+"AppName" is either ArrayApp or HashApp, depending upon which you want to run,
+and "fileNam]" is the name of the file you wish to load data from. By default,
 if no command-line arguments are passed, the application will select the
 sorted csv file to load dat from.
 
