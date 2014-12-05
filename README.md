@@ -36,11 +36,13 @@ after the -t switch. The first tells the program how many sales to make and
 the second tells the program how many searches to make. By default, the program
 will make 1000 sales and 1000 searches.
 
-Interactive mode is the only mode currently supported.
-
-The bin directory also contains a shell script named "test" that will be
+The bin directory also contains a shell script named "test" that can be
 used to execute each application in test mode and record the run times in
-a log file. This feature is not yet offered.
+a time-stamped log file. To execute the script, from the bin directory, type
+```bash
+./test
+```
+and wait a few minutes for the script to run and create the log file.
 
 #### How to Compile from Source
 
@@ -59,4 +61,12 @@ progress.
 #### Status Updates
 
 Currently, both the HashTable and ItemArray container classes have been
-tested and will run all of the desired functions. Neither has been timed.
+tested and will run all of the desired functions. 
+
+Early results show the HashTable provides faster searches than the ordered
+Array, up to nearly twice as fast, but is much slower at insertion.
+
+Additionally, there is an unknown bug in the HashTable class that causes to
+lose about 2000 of the 25000 records as it is inserting them into the table
+when it loads data from the randomized csv. This bug does occur when loading
+from the ordered csv. 
