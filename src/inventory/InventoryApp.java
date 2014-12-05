@@ -121,9 +121,25 @@ protected static void writeData(String file) {
 
 public static void main(String[] args) {
 
-	loadData("data.csv");
-	mainMenu();
-	writeData("data.csv");	
+/*
+ * Changed loadData method to take a file name passed from the system
+ * when the application is run from the command line. If no argument is
+ * passed from the command line, the default is to open "data.csv"
+ */
+
+	if (args.length == 0) {
+		loadData("data.csv");
+		mainMenu();
+		writeData("data.csv");
+	} else {
+		loadData(args[0]);
+		mainMenu();
+		if (args.length == 2) {
+			writeData(args[1]);
+		} else {
+			writeData(args[0]);
+		}
+	}
 
 }
 
