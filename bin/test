@@ -1,0 +1,6 @@
+#! /bin/bash
+
+## This shell script will be used to execute each of the unit tests
+## and record the results in a log file
+
+java inventory.InventoryApp data.csv
