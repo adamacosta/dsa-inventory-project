@@ -17,7 +17,8 @@
 package inventory;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
+import java.text.SimpleDateFormat;
 
 public class TreeApp{
 
@@ -139,12 +140,27 @@ protected static void executeTest(String file, int[] testCases) {
 	} else {
 		numSearches = testCases[1];
 	}
+	long startTime = System.nanoTime();
 	loadData(file);
-	// insert timing code here
-	
-	// stop timer and write result to a log file
-	// plus output on screen
-	writeData(file);
+	long loadTime = System.nanoTime() - startTime;
+	int numRecords = stock.size();
+	startTime = System.nanoTime();
+	for (int i = 1234567890; i < 1234567890 + numSales; i++ ) {
+		stock.find(i).sellItem(1);
+	}
+	long saleTime = System.nanoTime() - startTime;
+	startTime = System.nanoTime();
+	for (int i = 1234567890; i < 1234567890 + numSearches; i++) {
+		stock.find(i);
+	}
+	long searchTime = System.nanoTime() - startTime;
+	System.out.println("Number of records: " + stock.size());
+	System.out.println("File used: " + file);
+	System.out.println("Number of sales: " + numSales);
+	System.out.println("Number of searches: " + numSearches);
+	System.out.println("Load time: " + loadTime);
+	System.out.println("Sale time: " + saleTime);
+	System.out.println("Search time: " + searchTime); 
 }
 
 /**
@@ -169,8 +185,15 @@ public static void main(String[] args) {
 				break;
 			case 't':
 				interactive = false;
-				testCases[0] = Integer.parseInt(args[++i]);
-				testCases[1] = Integer.parseInt(args[++i]); 
+				if (args[i + 1].matches("^-\\w+$")) {
+					break;
+				}
+				if (args.length >  i + 1) {
+					testCases[0] = Integer.parseInt(args[++i]);
+				}
+				if (args.length > i + 2) {
+					testCases[1] = Integer.parseInt(args[++i]); 
+				}
 			}
 		}
 	}
