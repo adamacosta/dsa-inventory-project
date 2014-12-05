@@ -24,15 +24,19 @@ different csv files with 25000 records each that can be used to load data
 into the program. One, "data.csv," contains records sorted by SKU. The other, 
 "rand-data.csv," contains randomly ordered records. To run a program, enter
 ```bash
-java inventory.AppName fileName.csv
+java inventory.AppName -f fileName -i -t numberOne numberTwo
 ```
 where "AppName" is either ArrayApp or HashApp, depending upon which you want 
 to run, and "fileName" is the name of the file you wish to load data from. 
 By default, if no command-line arguments are passed, the application will 
-select the sorted csv file to load data from.
+select the sorted csv file to load data from. The -i and -t switches allow
+the program to run in either interactive mode or test mode. Interactive mode
+is the default. If test mode is chosen, you can optionally supply two integers
+after the -t switch. The first tells the program how many sales to make and
+the second tells the program how many searches to make. By default, the program
+will make 1000 sales and 1000 searches.
 
-This will run the program in interactive mode, which is currently the only
-offered mode.
+Interactive mode is the only mode currently supported.
 
 The bin directory also contains a shell script named "test" that will be
 used to execute each application in test mode and record the run times in
