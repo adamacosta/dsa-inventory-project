@@ -66,7 +66,7 @@ tested and will run all of the desired functions.
 Early results show the HashTable provides faster searches than the ordered
 Array, up to nearly twice as fast, but is much slower at insertion.
 
-Additionally, there is an unknown bug in the HashTable class that causes to
+Additionally, there is an unknown bug in the HashTable class that causes it to
 lose about 2000 of the 25000 records as it is inserting them into the table
-when it loads data from the randomized csv. This bug does occur when loading
+when it loads data from the randomized csv. This bug does not occur when loading
 from the ordered csv. 
