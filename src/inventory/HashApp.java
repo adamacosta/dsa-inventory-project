@@ -154,13 +154,13 @@ protected static void executeTest(String file, int[] testCases) {
 		stock.find(i);
 	}
 	long searchTime = System.nanoTime() - startTime;
-	System.out.println("Number of records: " + stock.size());
+	System.out.println("\nNumber of records: " + stock.size());
 	System.out.println("File used: " + file);
 	System.out.println("Number of sales: " + numSales);
 	System.out.println("Number of searches: " + numSearches);
 	System.out.println("Load time: " + loadTime);
 	System.out.println("Sale time: " + saleTime);
-	System.out.println("Search time: " + searchTime); 
+	System.out.println("Search time: " + searchTime + '\n'); 
 }
 
 /**

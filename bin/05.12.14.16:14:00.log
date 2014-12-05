@@ -1,0 +1,180 @@
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 1000
+Number of searches: 1000
+Load time: 1029652426
+Sale time: 2396632
+Search time: 247755
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 2000
+Number of searches: 1000
+Load time: 1011840436
+Sale time: 2195186
+Search time: 198746
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 3000
+Number of searches: 1000
+Load time: 977158039
+Sale time: 3397603
+Search time: 193648
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 4000
+Number of searches: 1000
+Load time: 985322722
+Sale time: 2688937
+Search time: 205624
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 5000
+Number of searches: 1000
+Load time: 999738891
+Sale time: 2935779
+Search time: 197950
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 6000
+Number of searches: 1000
+Load time: 1000030624
+Sale time: 3209558
+Search time: 219095
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 7000
+Number of searches: 1000
+Load time: 1127489669
+Sale time: 3676415
+Search time: 235654
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 8000
+Number of searches: 1000
+Load time: 989887044
+Sale time: 3923646
+Search time: 194229
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 9000
+Number of searches: 1000
+Load time: 1005466523
+Sale time: 5003077
+Search time: 202284
+
+
+Number of records: 25000
+File used: data.csv
+Number of sales: 10000
+Number of searches: 1000
+Load time: 1039709632
+Sale time: 4468340
+Search time: 94762
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 1000
+Number of searches: 1000
+Load time: 1332169428
+Sale time: 2176940
+Search time: 201293
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 2000
+Number of searches: 1000
+Load time: 1345486799
+Sale time: 2217705
+Search time: 191856
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 3000
+Number of searches: 1000
+Load time: 1401095082
+Sale time: 2467735
+Search time: 190485
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 4000
+Number of searches: 1000
+Load time: 1460831603
+Sale time: 2661008
+Search time: 202297
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 5000
+Number of searches: 1000
+Load time: 1575834159
+Sale time: 2997288
+Search time: 224088
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 6000
+Number of searches: 1000
+Load time: 1362407480
+Sale time: 3301850
+Search time: 191471
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 7000
+Number of searches: 1000
+Load time: 1397505195
+Sale time: 3451632
+Search time: 177352
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 8000
+Number of searches: 1000
+Load time: 1392195418
+Sale time: 4652349
+Search time: 197896
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 9000
+Number of searches: 1000
+Load time: 1372383874
+Sale time: 3909785
+Search time: 111048
+
+
+Number of records: 25000
+File used: rand-data.csv
+Number of sales: 10000
+Number of searches: 1000
+Load time: 1425732128
+Sale time: 5142275
+Search time: 204414
+
