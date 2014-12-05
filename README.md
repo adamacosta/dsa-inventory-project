@@ -15,7 +15,7 @@ into the program. One, "data.csv," contains records sorted by SKU. The other,
 "rand-data.csv," contains records in random order. Run the program by
 executing the command "java inventory.AppName fileName.csv" where 
 "AppName" is either ArrayApp or HashApp, depending upon which you want to run,
-and "fileNam]" is the name of the file you wish to load data from. By default,
+and "fileName" is the name of the file you wish to load data from. By default,
 if no command-line arguments are passed, the application will select the
 sorted csv file to load dat from.
 
