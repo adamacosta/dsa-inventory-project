@@ -11,7 +11,7 @@ package inventory;
 public class ItemArray {
 
 private ItemRecord[] records;
-private final int max = 10000;
+private final int max = 25000;
 private int size;
 
 public ItemArray() {
