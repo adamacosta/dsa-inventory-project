@@ -1,5 +1,7 @@
 /**
- * Copies the scanned in ArrayList<ItemRecord> into an Array.
+ * Accepts ItemRecords from the InventoryApp, inserts them into
+ * a sorted Array, and allows search and delete, though the delete
+ * method is not currently used by the InventoryApp program. 
  * 
  * @author Junko Kotake 
  */
@@ -23,6 +25,10 @@ public int size() {
    
 /** insert - insert new ItemRecord */
 public void insert(ItemRecord newRecord) {
+	/*
+	 * insert method sorts as it inserts, so Array will 
+	 * always be sorted by SKU for faster search
+	 */
 	int i = size;
 	while (i > 0 && newRecord.getSKU() < records[i - 1].getSKU()) {
 		records[i] = records[i - 1];
@@ -36,6 +42,10 @@ public void insert(ItemRecord newRecord) {
  * Returns null if key not found
  */
 public ItemRecord find(int key) {
+	/*
+	 * The Array is always sorted, so we use an iterative
+	 * binary search to find the ItemRecord with specified SKU
+	 */
 	int lower = 0;
 	int upper = size - 1;
 	int middle;

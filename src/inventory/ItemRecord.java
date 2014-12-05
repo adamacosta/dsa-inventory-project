@@ -165,12 +165,12 @@ public class ItemRecord {
   /** Added String result; because result was not defined.  Also changed Integer.toString because (String) was not compiling*/
 	public String toString() {
 		String result = "";
-		result += Integer.toString(SKU) + ",\t";
-		result += Integer.toString(numInStore) + ",\t";
-		result += Integer.toString(numAtWarehouse) + ",\t";
-		result += Integer.toString(numInTransit) + '\n';
-		result += name + ",\t";
-		result += descrip + ",\t";
+		result += Integer.toString(SKU) + ",";
+		result += Integer.toString(numInStore) + ",";
+		result += Integer.toString(numAtWarehouse) + ",";
+		result += Integer.toString(numInTransit) + ",";
+		result += name + ",";
+		result += descrip + ",";
 		return result;
 	}
 
