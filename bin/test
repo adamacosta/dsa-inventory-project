@@ -56,16 +56,17 @@ java inventory.HashApp -f rand-data.csv -t 9000 9000  >> $now.log
 java inventory.HashApp -f rand-data.csv -t 10000 10000  >> $now.log
 
 ## TreeApp- ordered tests
-java inventory.TreeApp -f data.csv -t 1000 1000  >> $now.log
-java inventory.TreeApp -f data.csv -t 2000 2000  >> $now.log
-java inventory.TreeApp -f data.csv -t 3000 3000  >> $now.log
-java inventory.TreeApp -f data.csv -t 4000 4000  >> $now.log
-java inventory.TreeApp -f data.csv -t 5000 5000  >> $now.log
-java inventory.TreeApp -f data.csv -t 6000 6000  >> $now.log
-java inventory.TreeApp -f data.csv -t 7000 7000  >> $now.log
-java inventory.TreeApp -f data.csv -t 8000 8000  >> $now.log
-java inventory.TreeApp -f data.csv -t 9000 9000  >> $now.log
-java inventory.TreeApp -f data.csv -t 10000 10000  >> $now.log
+## commented out pending completion of Tree class
+#java inventory.TreeApp -f data.csv -t 1000 1000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 2000 2000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 3000 3000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 4000 4000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 5000 5000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 6000 6000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 7000 7000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 8000 8000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 9000 9000  >> $now.log
+#java inventory.TreeApp -f data.csv -t 10000 10000  >> $now.log
 
 ## TreeApp - random tests
 ## commented out pending completion of Tree class
