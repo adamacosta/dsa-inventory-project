@@ -5,9 +5,9 @@
   * velocity and number of item in stock.
   *
   * Data structures used are the ItemRecord, a single node containing fields
-  * for product data and stock levels, and the StockList, which is a container
+  * for product data and stock levels, and the HashTable, which is a container
   * class holding all of the ItemRecords, allowing search, insertion, and 
-  * deletion
+  * deletion.
   *
   * Written for the Fall 2014 Data Structure and Algorithms Course at
   * Empire State College, a collaboration between Adam Acosta, Joe Harmon, 
@@ -19,9 +19,9 @@ package inventory;
 import java.io.*;
 import java.util.Scanner;
 
-public class InventoryApp{
+public class HashApp{
 
-private static ItemArray stock = new ItemArray();
+private static HashTable stock = new HashTable();
 protected static Scanner INPUT = new Scanner(System.in);
 
 protected static void loadData(String file) {

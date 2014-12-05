@@ -1,115 +1,109 @@
+/**
+ * HashTable is a container class for the ItemRecord, each of which
+ * is used by InventoryApp to store live product inventory records.
+ * This implementation uses double hashing to conduct a probe when
+ * collisions occur. 
+ *
+ * @ authors Michael Scarpace and Adam Acosta 2014
+ */
+
 package inventory;
 
-public class HashTable implements Set, StockList {
+public class HashTable {
 
 private ItemRecord deleted;
 private ItemRecord[] data;
 private int fullness;
+// this is set to the smallest prime greater than twice the 
+// expected number of records
+private final int max = 50021; 
 
-public int hashCode(){
-    return ItemRecord.SKU mod 100;
-}
-public boolean equals(Object that){
-    if (this == that){
-        return true;
-    }
-    if (that == null){
-        return false;
-    }
-    if (getClass() != that.getClass){
-        return false;
-    }
-    ItemRecord thatItemRecord = (ItemRecord)that;
-    return description == thatItemRecord.description;
-    /**will need to compare a more relevant field*/
-}
-
-
-
-public HashTable(ItemRecord deleted){
-    data = (ItemRecord[])(new Object [1]);
-    fullness = 0;
-    this.deleted = deleted;
-
+public HashTable(){
+    	data = new ItemRecord[max];
+    	fullness = 0;
+	String args = "";
+	args = ("-1,0,0,0,0,null,null");
+    	deleted = new ItemRecord(args);
 }
 
 protected int hash1(ItemRecord target){
-    return Math.abs(target.hashCode()) % data.length;
+    	return target.getSKU() % data.length;
 }
 
 protected int hash2(ItemRecord target){
-    int result = Math.abs(target.hashCode()) % (data.length-1);
-    if(result%2 == 0){ return result + 1;}
-    return result;
+    	return 13 - (target.getSKU() % 13);
 }
+
 public int size(){
-    int tally = 0;
-    for (ItemRecord target: data){
-        if((item != null) && (item != deleted)){
-            tally++
-        }
-    }
-    return tally;
+    	return fullness;
 }
 
-public boolean contains(ItemRecord target){
-    int start = hash1(target);
-    int i = start;
-    while (data[i] != null){
-        if(target.equals(data[i])){
-            return true;
-        }
-        i = (i+ hash2(target)) % data.length;
-        if(i == start){
-            return false;
+public ItemRecord find(int key){
+	int start = key % data.length;
+    	int i = start;
+    	while (data[i] != null){
+        	if(key == data[i].getSKU()){
+            		return data[i];
+        	}
+        	i += (13 - (key % 13)) % data.length;
+        	if(i == start){
+            		break;
 
-        }
-    }
-    return false;
+        	}
+    	}
+	System.out.println("\nSKU not found.\n");
+    	return null;
 }
-public void add(ItemRecord target){
-    if(fullness >= data.length/2){
-        rehash();
-    }
-    int start = hash1(target);
-    int i = start;
-    while(data[i] != null){
-        if(target.equals(data[i])){
-            return;
-        }
-        i = (i+hash2(target)) % data.length;
-        if(i == start){
-            return;
-        }
-    }
-    data[i] = target;
-    fullness++;
-    }
+
+public void insert(ItemRecord target){
+	if(fullness >= data.length / 2){
+        	rehash();
+    	}
+    	int start = hash1(target);
+    	int i = start;
+    	while(data[i] != null){
+        	if(target.equals(data[i])){
+            		return;
+        	}
+        	i = (i + hash2(target)) % data.length;
+        	if(i == start){
+            		return;
+        	}
+    	}
+    	data[i] = target;
+    	fullness++;
+}
+
 public void rehash(){
-HashTable newTable = new HashTable(deleted);
-newTable.data = (ItemRecord[])(new Object[data.length *2]);
-for(int i = 0; i<data.length; i++){
-if((data[i] != null) && (data[i] != deleted)){
-newTable.add((ItemRecord)(data[i]));
+	HashTable newTable = new HashTable();
+/*
+ * Note: This could produce a bug if the rehash results in an array 
+ * length that is not prime, so we'll want to eventually find a way
+ * to find the next prime number after data.length * 2
+ */
+	newTable.data = new ItemRecord[data.length * 2];
+	for(int i = 0; i<data.length; i++){
+		if((data[i] != null) && (data[i] != deleted)){
+			newTable.insert((ItemRecord)(data[i]));
+		}
+	}
+	data = newTable.data;
+	fullness = newTable.fullness;
 }
+
+public void delete(ItemRecord target){
+   	int start = hash1(target);
+   	int i = start;
+   	while (data[i] != null){
+        	if(target.equals(data[i])){
+            		data[i] = deleted;
+            		return;
+        	}
+        	i = (i + hash2(target)) % data.length;
+        	if(i == start){
+        		return;
+        	}
+	}
 }
 
-data = newTable.data;
-fullness = newTable.fullness;
-
 }
-
-public void remove(ItemRecord target){
-    int start = hash1(target);
-    int i = start;
-    while (data[i] != null){
-        if(target.equals(data[i])){
-            data[i] = deleted;
-            return;
-        }
-        i = (i + hash2(target)) % data.length;
-        if(i == start){
-            return;
-
-        }
-    }

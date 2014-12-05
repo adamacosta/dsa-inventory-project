@@ -174,4 +174,14 @@ public class ItemRecord {
 		return result;
 	}
 
+//** equals() method - will only work if called from an ItemRecord on an ItemRecord */
+	public boolean equals(ItemRecord that) {
+		if (this == that) {
+			return true;	
+		} else if (this.getSKU() == that.getSKU()) {
+			return true;
+		}
+		return false;
+	}
+
 } 
