@@ -154,6 +154,7 @@ protected static void executeTest(String file, int[] testCases) {
 		stock.find(i);
 	}
 	long searchTime = System.nanoTime() - startTime;
+	System.out.println("Container: HashTable");
 	System.out.println("\nNumber of records: " + stock.size());
 	System.out.println("File used: " + file);
 	System.out.println("Number of sales: " + numSales);
