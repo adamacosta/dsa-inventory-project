@@ -1,0 +1,6 @@
+-cp ../bin
+-d ../bin
+
+inventory/ItemRecord.java
+inventory/InventoryApp.java
+inventory/ItemArray.java
