@@ -119,6 +119,37 @@ protected static void writeData(String file) {
 
 }
 
+protected static void executeInteractive(String file) {
+	loadData(file);
+	mainMenu();
+	writeData(file);
+}
+
+protected static void executeTest(String file, int[] testCases) {
+	// file in with code to run a timer on the specific file
+	// and number of each operation given by the user
+	int numSales, numSearches;
+	if (testCases[0] == 0) {
+		numSales = 1000;
+	} else {
+		numSales = testCases[0];
+	}
+	if (testCases[1] == 0) {
+		numSearches = 1000;
+	} else {
+		numSearches = testCases[1];
+	}
+	loadData(file);
+	// insert timing code here
+	
+	// stop timer and write result to a log file
+	// plus output on screen
+	writeData(file);
+}
+
+/**
+ * @param args
+ */
 public static void main(String[] args) {
 
 /*
@@ -126,19 +157,27 @@ public static void main(String[] args) {
  * when the application is run from the command line. If no argument is
  * passed from the command line, the default is to open "data.csv"
  */
-
-	if (args.length == 0) {
-		loadData("data.csv");
-		mainMenu();
-		writeData("data.csv");
-	} else {
-		loadData(args[0]);
-		mainMenu();
-		if (args.length == 2) {
-			writeData(args[1]);
-		} else {
-			writeData(args[0]);
+	String file = "data.csv";
+	boolean interactive = true;
+	int[] testCases = new int[2];
+	for (int i = 0; i < args.length; i++) {
+		if (args[i].matches("^-\\w+$")) {
+			switch (args[i].charAt(1)) {
+			case 'f':
+				file = args[++i];
+			case 'i':
+				break;
+			case 't':
+				interactive = false;
+				testCases[0] = Integer.parseInt(args[++i]);
+				testCases[1] = Integer.parseInt(args[++i]); 
+			}
 		}
+	}
+	if (interactive) {
+		executeInteractive(file);
+	} else {
+		executeTest(file, testCases);
 	}
 
 }

@@ -5,7 +5,7 @@
   * velocity and number of item in stock.
   *
   * Data structures used are the ItemRecord, a single node containing fields
-  * for product data and stock levels, and the HashTable, which is a container
+  * for product data and stock levels, and the ItemTree, which is a container
   * class holding all of the ItemRecords, allowing search, insertion, and 
   * deletion
   *
@@ -19,9 +19,9 @@ package inventory;
 import java.io.*;
 import java.util.Scanner;
 
-public class HashApp{
+public class TreeApp{
 
-private static HashTable stock = new HashTable();
+private static ItemTree stock = new ItemTree();
 protected static Scanner INPUT = new Scanner(System.in);
 
 protected static void loadData(String file) {
