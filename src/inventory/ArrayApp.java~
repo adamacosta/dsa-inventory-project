@@ -186,9 +186,9 @@ public static void main(String[] args) {
 				break;
 			case 't':
 				interactive = false;
-				if (args.length == i + 1) {
+				if (args.length == i) {
 					break;
-				} else if (args.length == i + 2) {
+				} else if (args.length == i + 1) {
 					if (args[i + 1].matches("^-\\w+$")) {
 						break;
 					}

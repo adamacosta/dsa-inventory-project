@@ -7,6 +7,8 @@
 now=$(date +"%d.%m.%y.%T")
 touch $now.csv
 
+echo "struct,nrecs,file,sales,searches,ltime,saletime,searchtime\n" >> $now.csv
+
 ## ArrayApp - ordered tests
 java inventory.ArrayApp -f sort-10000.csv -t 10000 10000  >> $now.csv
 java inventory.ArrayApp -f sort-25000.csv -t 25000 25000  >> $now.csv

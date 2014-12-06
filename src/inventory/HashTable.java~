@@ -61,7 +61,7 @@ protected static void loadData(String file) {
 	}
 }
 
-protected static void mainMenu(String file) {
+protected static void mainMenu() {
 	System.out.println("Welcome to ABC Stores Main Menu");
 	while (true) {
 		System.out.println("\nPlease choose an option: ");
@@ -122,7 +122,7 @@ protected static void writeData(String file) {
 
 protected static void executeInteractive(String file) {
 	loadData(file);
-	mainMenu(file);
+	mainMenu();
 	writeData(file);
 }
 
@@ -186,20 +186,15 @@ public static void main(String[] args) {
 				break;
 			case 't':
 				interactive = false;
-				if (args.length == i + 1) {
+				if (args[i + 1].matches("^-\\w+$")) {
 					break;
-				} else if (args.length == i + 2) {
-					if (args[i + 1].matches("^-\\w+$")) {
-						break;
-					}
-					testCases[0] = Integer.parseInt(args[i + 1]);
-					break;
-				} else if (args.length == i + 2) {
-					testCases[0] = Integer.parseInt(args[i + 1]);
-					testCases[1] = Integer.parseInt(args[i + 2]);
-					break;	
 				}
-				break;
+				if (args.length >  i + 1) {
+					testCases[0] = Integer.parseInt(args[i+1]);
+				}
+				if (args.length > i + 2) {
+					testCases[1] = Integer.parseInt(args[i+2]); 
+				}
 			}
 		}
 	}

@@ -61,7 +61,7 @@ protected static void loadData(String file) {
 	}
 }
 
-protected static void mainMenu() {
+protected static void mainMenu(String file) {
 	System.out.println("Welcome to ABC Stores Main Menu");
 	while (true) {
 		System.out.println("\nPlease choose an option: ");
@@ -74,7 +74,7 @@ protected static void mainMenu() {
 		} else if (selection==2) {
 			findItem();
 		} else if (selection==3) {
-			writeData("data.csv");
+			writeData(file);
 			break;
 		} else {
 			System.out.println("Invalid input. Try again.");
@@ -122,7 +122,7 @@ protected static void writeData(String file) {
 
 protected static void executeInteractive(String file) {
 	loadData(file);
-	mainMenu();
+	mainMenu(file);
 	writeData(file);
 }
 
@@ -131,12 +131,12 @@ protected static void executeTest(String file, int[] testCases) {
 	// and number of each operation given by the user
 	int numSales, numSearches;
 	if (testCases[0] == 0) {
-		numSales = 1000;
+		numSales = 10000;
 	} else {
 		numSales = testCases[0];
 	}
 	if (testCases[1] == 0) {
-		numSearches = 1000;
+		numSearches = 10000;
 	} else {
 		numSearches = testCases[1];
 	}
@@ -154,14 +154,14 @@ protected static void executeTest(String file, int[] testCases) {
 		stock.find(i);
 	}
 	long searchTime = System.nanoTime() - startTime;
-	System.out.println("Container: HashTable");
-	System.out.println("\nNumber of records: " + stock.size());
-	System.out.println("File used: " + file);
-	System.out.println("Number of sales: " + numSales);
-	System.out.println("Number of searches: " + numSearches);
-	System.out.println("Load time: " + loadTime);
-	System.out.println("Sale time: " + saleTime);
-	System.out.println("Search time: " + searchTime + '\n'); 
+	System.out.print("Array");
+	System.out.print("," + stock.size());
+	System.out.print("," + file);
+	System.out.print("," + numSales);
+	System.out.print("," + numSearches);
+	System.out.print("," + loadTime);
+	System.out.print("," + saleTime);
+	System.out.print("," + searchTime + '\n'); 
 }
 
 /**
@@ -174,7 +174,7 @@ public static void main(String[] args) {
  * when the application is run from the command line. If no argument is
  * passed from the command line, the default is to open "data.csv"
  */
-	String file = "data.csv";
+	String file = "sort-10000.csv";
 	boolean interactive = true;
 	int[] testCases = new int[2];
 	for (int i = 0; i < args.length; i++) {
@@ -186,15 +186,20 @@ public static void main(String[] args) {
 				break;
 			case 't':
 				interactive = false;
-				if (args[i + 1].matches("^-\\w+$")) {
+				if (args.length == i + 1) {
 					break;
+				} else if (args.length == i + 2) {
+					if (args[i + 1].matches("^-\\w+$")) {
+						break;
+					}
+					testCases[0] = Integer.parseInt(args[i + 1]);
+					break;
+				} else if (args.length == i + 2) {
+					testCases[0] = Integer.parseInt(args[i + 1]);
+					testCases[1] = Integer.parseInt(args[i + 2]);
+					break;	
 				}
-				if (args.length >  i + 1) {
-					testCases[0] = Integer.parseInt(args[++i]);
-				}
-				if (args.length > i + 2) {
-					testCases[1] = Integer.parseInt(args[++i]); 
-				}
+				break;
 			}
 		}
 	}

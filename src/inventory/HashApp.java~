@@ -5,7 +5,7 @@
   * velocity and number of item in stock.
   *
   * Data structures used are the ItemRecord, a single node containing fields
-  * for product data and stock levels, and the StockList, which is a container
+  * for product data and stock levels, and the HashTable, which is a container
   * class holding all of the ItemRecords, allowing search, insertion, and 
   * deletion
   *
@@ -20,9 +20,9 @@ import java.io.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
 
-public class ArrayApp{
+public class HashApp{
 
-private static ItemArray stock = new ItemArray();
+private static HashTable stock = new HashTable();
 protected static Scanner INPUT = new Scanner(System.in);
 
 protected static void loadData(String file) {
@@ -186,9 +186,9 @@ public static void main(String[] args) {
 				break;
 			case 't':
 				interactive = false;
-				if (args.length == i + 1) {
+				if (args.length == i) {
 					break;
-				} else if (args.length == i + 2) {
+				} else if (args.length == i + 1) {
 					if (args[i + 1].matches("^-\\w+$")) {
 						break;
 					}
