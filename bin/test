@@ -5,78 +5,48 @@
 
 ## create log file
 now=$(date +"%d.%m.%y.%T")
-touch $now.log
+touch $now.csv
 
 ## ArrayApp - ordered tests
-java inventory.ArrayApp -f data.csv -t 1000 1000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 2000 2000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 3000 3000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 4000 4000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 5000 5000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 6000 6000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 7000 7000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 8000 8000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 9000 9000  >> $now.log
-java inventory.ArrayApp -f data.csv -t 10000 10000  >> $now.log
+java inventory.ArrayApp -f sort-10000.csv -t 10000 10000  >> $now.csv
+java inventory.ArrayApp -f sort-25000.csv -t 25000 25000  >> $now.csv
+java inventory.ArrayApp -f sort-50000.csv -t 50000 50000  >> $now.csv
+java inventory.ArrayApp -f sort-100000.csv -t 100000 100000  >> $now.csv
+java inventory.ArrayApp -f sort-1000000.csv -t 1000000 1000000  >> $now.csv
 
 ## ArrayApp - random tests
-java inventory.ArrayApp -f rand-data.csv -t 1000 1000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 2000 2000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 3000 3000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 4000 4000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 5000 5000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 6000 6000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 7000 7000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 8000 8000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 9000 9000  >> $now.log
-java inventory.ArrayApp -f rand-data.csv -t 10000 10000  >> $now.log
+java inventory.ArrayApp -f rand-10000.csv -t 10000 10000  >> $now.csv
+java inventory.ArrayApp -f rand-25000.csv -t 25000 25000  >> $now.csv
+java inventory.ArrayApp -f rand-50000.csv -t 50000 50000  >> $now.csv
+java inventory.ArrayApp -f rand-100000.csv -t 100000 100000  >> $now.csv
+java inventory.ArrayApp -f rand-1000000.csv -t 1000000 1000000  >> $now.csv
 
 ## HashApp- ordered tests
-java inventory.HashApp -f data.csv -t 1000 1000  >> $now.log
-java inventory.HashApp -f data.csv -t 2000 2000  >> $now.log
-java inventory.HashApp -f data.csv -t 3000 3000  >> $now.log
-java inventory.HashApp -f data.csv -t 4000 4000  >> $now.log
-java inventory.HashApp -f data.csv -t 5000 5000  >> $now.log
-java inventory.HashApp -f data.csv -t 6000 6000  >> $now.log
-java inventory.HashApp -f data.csv -t 7000 7000  >> $now.log
-java inventory.HashApp -f data.csv -t 8000 8000  >> $now.log
-java inventory.HashApp -f data.csv -t 9000 9000  >> $now.log
-java inventory.HashApp -f data.csv -t 10000 10000  >> $now.log
+java inventory.HashApp -f sort-10000.csv -t 10000 10000  >> $now.csv
+java inventory.HashApp -f sort-25000.csv -t 25000 25000  >> $now.csv
+java inventory.HashApp -f sort-50000.csv -t 50000 50000  >> $now.csv
+java inventory.HashApp -f sort-100000.csv -t 100000 100000  >> $now.csv
+java inventory.HashApp -f sort-1000000.csv -t 1000000 1000000  >> $now.csv
 
 ## HashApp - random tests
-java inventory.HashApp -f rand-data.csv -t 1000 1000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 2000 2000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 3000 3000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 4000 4000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 5000 5000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 6000 6000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 7000 7000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 8000 8000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 9000 9000  >> $now.log
-java inventory.HashApp -f rand-data.csv -t 10000 10000  >> $now.log
+java inventory.HashApp -f rand-10000.csv -t 10000 10000  >> $now.csv
+java inventory.HashApp -f rand-25000.csv -t 25000 25000  >> $now.csv
+java inventory.HashApp -f rand-50000.csv -t 50000 50000  >> $now.csv
+java inventory.HashApp -f rand-100000.csv -t 100000 100000  >> $now.csv
+java inventory.HashApp -f rand-1000000.csv -t 1000000 1000000  >> $now.csv
 
 ## TreeApp- ordered tests
 ## commented out pending completion of Tree class
-#java inventory.TreeApp -f data.csv -t 1000 1000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 2000 2000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 3000 3000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 4000 4000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 5000 5000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 6000 6000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 7000 7000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 8000 8000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 9000 9000  >> $now.log
-#java inventory.TreeApp -f data.csv -t 10000 10000  >> $now.log
+#java inventory.TreeApp -f sort-10000.csv -t 10000 10000  >> $now.csv
+#java inventory.TreeApp -f sort-25000.csv -t 25000 25000  >> $now.csv
+#java inventory.TreeApp -f sort-50000.csv -t 50000 50000  >> $now.csv
+#java inventory.TreeApp -f sort-100000.csv -t 100000 100000  >> $now.csv
+#java inventory.TreeApp -f sort-1000000.csv -t 1000000 1000000  >> $now.csv
 
 ## TreeApp - random tests
 ## commented out pending completion of Tree class
-#java inventory.TreeApp -f rand-data.csv -t 1000 1000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 2000 2000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 3000 3000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 4000 4000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 5000 5000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 6000 6000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 7000 7000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 8000 8000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 9000 9000  >> $now.log
-#java inventory.TreeApp -f rand-data.csv -t 10000 10000  >> $now.log
+#java inventory.TreeApp -f rand-10000.csv -t 10000 10000  >> $now.csv
+#java inventory.TreeApp -f rand-25000.csv -t 25000 25000  >> $now.csv
+#java inventory.TreeApp -f rand-50000.csv -t 50000 50000  >> $now.csv
+#java inventory.TreeApp -f rand-100000.csv -t 100000 100000  >> $now.csv
+#java inventory.TreeApp -f rand-1000000.csv -t 1000000 1000000  >> $now.csv
