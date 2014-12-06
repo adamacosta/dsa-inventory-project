@@ -58,6 +58,26 @@ source file, TreeApp, that is not currently in the argfile and will not
 compile, as it contains references to a container class that is still in 
 progress.
 
+#### Creating the .csv Files
+
+There is an executable file in the bin directory named "make-csv." To execute
+this program, type in
+```bash
+./make-csv
+```
+The prompt will ask you for a file name, the number of records to create, and
+whether or not you want the records to be sorted or in random order. Upon
+completion, a csv file will be created. Note that it will only have a .csv
+appended to the name if you specify that when giving a name to use. The C++
+source code to create this program is also in the bin directory. If you want to
+compile it from source, type in
+```bash
+g++ -o name -std=c++11 write-csv.cpp
+```
+where "name" is whatever you want to call the program. You must specify that
+you want to use the C++11 standard since the source code contains features not
+supported by earlier standards. 
+
 #### Status Updates
 
 Currently, both the HashTable and ItemArray container classes have been
