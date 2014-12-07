@@ -194,7 +194,7 @@ public static void main(String[] args) {
 					}
 					testCases[0] = Integer.parseInt(args[i + 1]);
 					break;
-				} else if (args.length == i + 2) {
+				} else if (args.length == i + 3) {
 					testCases[0] = Integer.parseInt(args[i + 1]);
 					testCases[1] = Integer.parseInt(args[i + 2]);
 					break;	
