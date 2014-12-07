@@ -4,8 +4,5 @@
 inventory/ItemRecord.java
 inventory/ItemArray.java
 inventory/HashTable.java
-inventory/ItemTree.java
-inventory/Node.java
 inventory/ArrayApp.java
 inventory/HashApp.java
-inventory/TreeApp.java
