@@ -16,7 +16,7 @@ private ItemRecord[] data;
 private int fullness;
 // this is set to the smallest prime greater than twice the 
 // expected number of records
-private final int max = 50021; 
+private final int max = 1000003; 
 
 public HashTable(){
     	data = new ItemRecord[max];
