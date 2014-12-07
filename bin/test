@@ -1,13 +1,13 @@
 #! /bin/bash
 
 ## This shell script will be used to execute each of the unit tests
-## and record the results in a log file
+## and record the results in a log file containing a csv table
 
 ## create log file
 now=$(date +"%d.%m.%y.%T")
 touch $now.csv
 
-echo "struct,nrecs,file,sales,searches,ltime,saletime,searchtime\n" >> $now.csv
+echo "struct,nrecs,file,sales,searches,ltime,saletime,searchtime" >> $now.csv
 
 ## ArrayApp - ordered tests
 java inventory.ArrayApp -f sort-10000.csv -t 1000 1000 >> $now.csv
