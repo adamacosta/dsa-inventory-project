@@ -31,7 +31,7 @@ type of data structure you wish to use.
 
 ##### Flags
 ```bash
--f
+-f fileName
 ```
 The -f flag tells the program which file to load data from. The directory
 comes pre-loaded with sort-10000.csv, sort-25000.csv, sort-50000.csv,
@@ -45,7 +45,7 @@ sort-10000.csv.
 The -i flags tells the program to run in interactive mode, which allows you
 to make sales, run searches, and close the store when complete.
 ```bash
--t
+-t numberOne numberTwo
 ```
 The -t flag tells the program to run in test mode. Follow the flag with two
 optional numbers, numberOne and numberTwo, which specify the number of
