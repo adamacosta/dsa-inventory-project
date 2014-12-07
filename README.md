@@ -27,14 +27,31 @@ into the program. One, "data.csv," contains records sorted by SKU. The other,
 java inventory.AppName -f fileName -i -t numberOne numberTwo
 ```
 where "AppName" is either ArrayApp or HashApp, depending upon which you want 
-to run, and "fileName" is the name of the file you wish to load data from. 
-By default, if no command-line arguments are passed, the application will 
-select the sorted csv file to load data from. The -i and -t switches allow
-the program to run in either interactive mode or test mode. Interactive mode
-is the default. If test mode is chosen, you can optionally supply two integers
-after the -t switch. The first tells the program how many sales to make and
-the second tells the program how many searches to make. By default, the program
-will make 1000 sales and 1000 searches.
+type of data structure you wish to use.
+
+##### Flags
+```bash
+-f
+```
+The -f flag tells the program which file to load data from. The directory
+comes pre-loaded with sort-10000.csv, sort-25000.csv, sort-50000.csv,
+sort-100000.csv, sort-1000000.csv, rand-10000.csv, rand-25000.csv, 
+rand-50000.csv, rand-100000.csv, and rand-1000000.csv. If no filename is
+passed from the command line, the program will default to loading data from
+sort-10000.csv.
+```bash
+-i
+```
+The -i flags tells the program to run in interactive mode, which allows you
+to make sales, run searches, and close the store when complete.
+```bash
+-t
+```
+The -t flag tells the program to run in test mode. Follow the flag with two
+optional numbers, numberOne and numberTwo, which specify the number of
+sales and the number of searches to run, respectively. If either or both
+numbers are not passed from the command line, test mode defaults to running
+10000 sales and 10000 searches. 
 
 The bin directory also contains a shell script named "test" that can be
 used to execute each application in test mode and record the run times in
