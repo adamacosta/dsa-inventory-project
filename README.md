@@ -26,8 +26,8 @@ into the program. One, "data.csv," contains records sorted by SKU. The other,
 ```bash
 java inventory.AppName -f fileName -i -t numberOne numberTwo
 ```
-where "AppName" is either ArrayApp or HashApp, depending upon which you want 
-type of data structure you wish to use.
+where "AppName" is either ArrayApp, HashApp, or TreeApp,  depending upon 
+which type of data structure you wish to use.
 
 ##### Flags
 ```bash
@@ -97,13 +97,12 @@ supported by earlier standards.
 
 #### Status Updates
 
-Currently, both the HashTable and ItemArray container classes have been
-tested and will run all of the desired functions. 
+Currently, each of the three available data structures and applications have
+all been tested in interactive mode and with test defaults. 
 
-Early results show the HashTable provides faster searches than the ordered
-Array, up to nearly twice as fast, but is much slower at insertion.
+#### Known Bugs
 
 Additionally, there is an unknown bug in the HashTable class that causes it to
-lose about 2000 of the 25000 records as it is inserting them into the table
-when it loads data from the randomized csv. This bug does not occur when loading
+lose about 1/12  of the records as it is inserting them into the table when
+it loads data from the randomized csv. This bug does not occur when loading
 from the ordered csv. 
