@@ -19,10 +19,7 @@ warehouse as necessary.
 
 #### How to Use the Program
 
-To run a program, navigate to the bin directory. There are currently two
-different csv files with 25000 records each that can be used to load data
-into the program. One, "data.csv," contains records sorted by SKU. The other, 
-"rand-data.csv," contains randomly ordered records. To run a program, enter
+To run a program, navigate to the bin directory and enter
 ```bash
 java inventory.AppName -f fileName -i -t numberOne numberTwo
 ```
@@ -59,7 +56,8 @@ a time-stamped log file. To execute the script, from the bin directory, type
 ```bash
 ./test
 ```
-and wait a few minutes for the script to run and create the log file.
+The first test run on an AMD FX-8120 Eight-Core, 1.4 GHz, 2MB cache took over
+two and a half hours to complete, so be patient when running the test script.
 
 #### How to Compile from Source
 
