@@ -1,4 +1,4 @@
-struct,nrecs,file,sales,searches,ltime,saletime,searchtime\n
+struct,nrecs,file,sales,searches,ltime,saletime,searchtime
 Array,10000,sort-10000.csv,1000,1000,713593162,2359556,285291
 Array,25000,sort-25000.csv,2500,2500,1264398932,2761225,777804
 Array,50000,sort-50000.csv,5000,5000,2100629828,3852744,765119
