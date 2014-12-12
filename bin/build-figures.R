@@ -4,7 +4,7 @@
 ## then plots run times for each structure as a function of the number of 
 ## records processed and whether or not they were random
 
-results <- read.csv("results.csv")
+results <- read.csv("09.12.14.08:42:09.csv")
 
 ar.sort <- results[1:10,]
 ar.rand <- results[11:20,]
@@ -44,7 +44,7 @@ tr.sort.searchtime <- smooth.spline(tr.sort$nrec,tr.sort$searchtime)
 tr.rand.searchtime <- smooth.spline(tr.rand$nrec,tr.rand$searchtime)
 
 ## open the file to write to
-png("figures.png",width=1000,height=1200)
+png("09.12.14.08:42:09.png",width=1000,height=1200)
 
 ## display six plots per panel
 par(mfrow=c(3,2))
@@ -56,7 +56,7 @@ lines(ar.sort.ltime,col="blue")
 lines(hs.sort.ltime,col="red")
 lines(tr.sort.ltime,col="green")
 title(main="Load Times - Sorted",xlab="Number of Records",ylab="time")
-legend("bottomright",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
+legend("topleft",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
 
 ## plot two
 plot(ar.rand.ltime,type="n",xlab="",ylab="",axes=F,ylim=c(0,max(ar.rand$ltime)))
@@ -65,7 +65,7 @@ lines(ar.rand.ltime,col="blue")
 lines(hs.rand.ltime,col="red")
 lines(tr.rand.ltime,col="green")
 title(main="Load Times - Random",xlab="Number of Records",ylab="time")
-legend("bottomright",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
+legend("topleft",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
 
 ## plot three
 plot(ar.sort.saletime,type="n",xlab="",ylab="",axes=F,ylim=c(0,max(tr.sort$saletime)))
@@ -74,7 +74,7 @@ lines(ar.sort.saletime,col="blue")
 lines(hs.sort.saletime,col="red")
 lines(tr.sort.saletime,col="green")
 title(main="Sale Times - Sorted",xlab="Number of Records",ylab="time")
-legend("bottomright",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
+legend("topleft",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
 
 ## plot four
 plot(ar.rand.saletime,type="n",xlab="",ylab="",axes=F,ylim=c(0,max(ar.rand$saletime)))
@@ -83,7 +83,7 @@ lines(ar.rand.saletime,col="blue")
 lines(hs.rand.saletime,col="red")
 lines(tr.rand.saletime,col="green")
 title(main="Sale Times - Random",xlab="Number of Records",ylab="time")
-legend("bottomright",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
+legend("topleft",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
 
 ## plot five
 plot(ar.sort.searchtime,type="n",xlab="",ylab="",axes=F,ylim=c(0,max(tr.sort$searchtime)))
@@ -92,7 +92,7 @@ lines(ar.sort.searchtime,col="blue")
 lines(hs.sort.searchtime,col="red")
 lines(tr.sort.searchtime,col="green")
 title(main="Search Times - Sorted",xlab="Number of Records",ylab="time")
-legend("bottomright",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
+legend("topleft",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
 
 ## plot six
 plot(ar.rand.searchtime,type="n",xlab="",ylab="",axes=F,ylim=c(0,max(tr.rand$searchtime)))
@@ -101,7 +101,7 @@ lines(ar.rand.searchtime,col="blue")
 lines(hs.rand.searchtime,col="red")
 lines(tr.rand.searchtime,col="green")
 title(main="Search Times - Random",xlab="Number of Records",ylab="time")
-legend("bottomright",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
+legend("topleft",col=c("blue","red","green"),legend=c("Array","Hash Table","Binary Tree"),lty=1)
 
 ## close file
 dev.off()
