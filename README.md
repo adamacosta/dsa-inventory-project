@@ -97,10 +97,3 @@ supported by earlier standards.
 
 Currently, each of the three available data structures and applications have
 all been tested in interactive mode and with test defaults. 
-
-#### Known Bugs
-
-Additionally, there is an unknown bug in the HashTable class that causes it to
-lose about 1/12  of the records as it is inserting them into the table when
-it loads data from the randomized csv. This bug does not occur when loading
-from the ordered csv. 
